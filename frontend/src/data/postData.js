@@ -1,4 +1,4 @@
-const posts = [
+const postData = [
     {
       id: 1,
       community: "Beginner Climbs",
@@ -34,4 +34,4 @@ const posts = [
     },
   ];
 
-  export default posts
+  export default postData
