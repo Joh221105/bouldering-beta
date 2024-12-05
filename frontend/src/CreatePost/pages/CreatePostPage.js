@@ -4,6 +4,7 @@ import React from "react";
 // Replace hardset Community selection option
 // implement submit function
 // add tag selection option specific to selected community
+// ability to add image
 
 const handleCreate = (e) => {
   e.preventDefault();

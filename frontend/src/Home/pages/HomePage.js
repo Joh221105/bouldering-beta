@@ -24,7 +24,11 @@ const HomePage = () => {
             <p className="text-gray-600 text-sm">Posted by {post.author} on {post.date}</p>
             <p className="my-4">{post.body}</p>
             <div className="flex justify-between items-center">
-              <span>{post.upvotes} Upvotes</span>
+              <div>
+              <span className="mr-5">{post.upvotes} Upvotes</span>
+              <span>{post.downvotes} Downvotes</span>
+                </div>
+        
               <span>{post.comments} Comments</span>
             </div>
           </div>

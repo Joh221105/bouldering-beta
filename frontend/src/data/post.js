@@ -7,6 +7,7 @@ const posts = [
       author: "JohnDoe",
       date: "2024-12-05",
       upvotes: 12,
+      downvotes:0,
       comments: 3,
     },
     {
@@ -17,6 +18,7 @@ const posts = [
       author: "ClimbMaster",
       date: "2024-12-04",
       upvotes: 23,
+      downvotes:10,
       comments: 5,
     },
     {
@@ -27,6 +29,7 @@ const posts = [
       author: "ExplorerJane",
       date: "2024-12-03",
       upvotes: 34,
+      downvotes:50,
       comments: 8,
     },
   ];
