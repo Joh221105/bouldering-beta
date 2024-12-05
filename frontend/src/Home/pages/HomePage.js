@@ -1,5 +1,5 @@
 import React from "react";
-import posts from "../../data/post";
+import posts from "../../data/postData";
 
 const HomePage = () => {
   return (
@@ -8,9 +8,9 @@ const HomePage = () => {
       <div className="w-1/4 p-4 border-r">
         <h2 className="text-xl font-bold mb-4 pb-5 uppercase border-b-2">Communities</h2>
         <ul>
-          <li><a href="#" className="text-blue-600">Beginner Climbs</a></li>
-          <li><a href="#" className="text-blue-600">Advanced Beta</a></li>
-          <li><a href="#" className="text-blue-600">Outdoor Adventures</a></li>
+          <li><a href="#1" className="text-blue-600">Beginner Climbs</a></li>
+          <li><a href="#2" className="text-blue-600">Advanced Beta</a></li>
+          <li><a href="#3" className="text-blue-600">Outdoor Adventures</a></li>
         </ul>
       </div>
 

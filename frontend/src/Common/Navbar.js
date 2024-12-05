@@ -12,7 +12,6 @@ const Navbar = () => {
       <Link className="mr-5" to="/create">Create Post</Link>
       <Link className="mr-5" to="/edit-post">Edit Post</Link>
       <Link className="mr-5" to="/edit-profile">Edit Profile</Link>
-      <Link className="mr-5" to="/explore">Explore</Link>
       <Link className="mr-5" to="/post">Post Details</Link>
       <Link className="mr-5" to="/search">Search</Link>
       <Link className="mr-5" to="/profile">User Profile</Link>

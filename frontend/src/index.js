@@ -10,7 +10,6 @@ import CommunityPage from './Community/pages/CommunityPage'
 import CreatePostPage from './CreatePost/pages/CreatePostPage'
 import EditPostPage from './EditPost/pages/EditPostPage'
 import EditProfilePage from './EditProfile/pages/EditProfilePage'
-import ExplorePage from './Explore/pages/ExplorePage'
 import PostDetailsPage from './PostDetails/pages/PostDetailsPage'
 import SearchPage from './Search/pages/SearchPage'
 import UserProfilePage from './UserProfile/pages/UserProfilePage'
@@ -27,7 +26,6 @@ const router = createBrowserRouter([
   { path: "/create", element: <CreatePostPage /> },
   { path: "/edit-post", element: <EditPostPage /> },
   { path: "/edit-profile", element: <EditProfilePage /> },
-  { path: "/explore", element: <ExplorePage /> },
   { path: "/post", element: <PostDetailsPage /> },
   { path: "/search", element: <SearchPage /> },
   { path: "/profile", element: <UserProfilePage/>}

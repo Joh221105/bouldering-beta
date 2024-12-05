@@ -1,6 +1,6 @@
 import React from "react";
-import communityPosts from "../../data/post";
-import community from "../../data/community";
+import communityPosts from "../../data/postData";
+import community from "../../data/communityData";
 import { useState } from "react";
 
 const CommunityPage = () => {
