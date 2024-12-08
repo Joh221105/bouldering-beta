@@ -13,7 +13,7 @@ const CommunityPage = () => {
   return (
     <div className="min-h-screen flex">
       {/* Side Bar */}
-      <div className="w-1/4 p-4 border-r">
+      <div className="w-1/4 p-4 border-r bg-gray-100">
         <h1 className="mb-4 text-2xl font-bold">{community.name}</h1>
         <p>{community.description}</p>
         <p className="mt-4">

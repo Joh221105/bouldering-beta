@@ -1,22 +1,69 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className='text-red-500 bg-slate-200 flex justify-around p-3 text-2xl'>
-      <div className='border border-t-blue-500'></div>
-      <Link className="mr-5" to="/signup">Sign Up</Link>
-      <Link className="mr-5" to="/login">Login</Link>
-      <Link className="mr-5" to="/">Home</Link>
-      <Link className="mr-5" to="/community">Community</Link>
-      <Link className="mr-5" to="/create">Create Post</Link>
-      <Link className="mr-5" to="/edit-post">Edit Post</Link>
-      <Link className="mr-5" to="/edit-profile">Edit Profile</Link>
-      <Link className="mr-5" to="/post">Post Details</Link>
-      <Link className="mr-5" to="/search">Search</Link>
-      <Link className="mr-5" to="/profile">User Profile</Link>
-    </div>
-  )
-}
+    <nav className="bg-gray-800 text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          {/* Logo */}
+          <div className="flex-shrink-0">
+            <h1 className="text-2xl font-bold">Bouldering Beta</h1>
+          </div>
 
-export default Navbar
+          {/* Main Links */}
+          <div className="flex space-x-4">
+            <Link
+              to="/"
+              className="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700"
+            >
+              Home
+            </Link>
+            <Link
+              to="/community"
+              className="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700"
+            >
+              Communities
+            </Link>
+            <Link
+              to="/create"
+              className="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700"
+            >
+              Create Post
+            </Link>
+            <Link
+              to="/profile"
+              className="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700"
+            >
+              Profile
+            </Link>
+            <Link
+              to="/search"
+              className="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700"
+            >
+              Search
+            </Link>
+          </div>
+
+          {/* Sign up and Login */}
+          <div className="flex space-x-4">
+            <Link
+              to="/login"
+              className="px-3 py-2 bg-green-500 text-sm font-medium rounded-md hover:bg-green-400"
+            >
+              Log In
+            </Link>
+            <Link
+              to="/signup"
+              className="px-3 py-2 bg-blue-500 text-sm font-medium rounded-md hover:bg-blue-400"
+            >
+              Sign Up
+            </Link>
+          </div>
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;
