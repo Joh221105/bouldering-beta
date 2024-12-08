@@ -4,8 +4,8 @@ import {
   getPostById,
   deletePost,
   searchPosts,
-  filterPostsByTags,
-} from "../controllers/PostController.js";
+  createPost
+} from "../controllers/postController.js";
 
 const app = express.Router();
 
@@ -15,9 +15,8 @@ app.get("/", getAllPosts);
 // get Posts by search query
 app.get("/search", searchPosts);
 
-// get Posts by tag
-app.get("/filter", filterPostsByTags);
-
+// create post
+app.post("/", createPost)
 // get Post by ID
 app.get("/:postId", getPostById);
 
