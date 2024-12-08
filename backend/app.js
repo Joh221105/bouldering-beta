@@ -1,6 +1,9 @@
 import express from 'express';
 import connectDB from './config/db.js';
-// TODO: Import routes
+import authRoute from './routes/authRoutes.js';
+import userRoute from './routes/userRoutes.js';
+import postRoute from './routes/postRoutes.js';
+import communityRoute from './routes/communityRoutes.js';
 
 const app = express();
 
@@ -10,14 +13,13 @@ connectDB();
 // Middleware
 app.use(express.json());
 
-// Routes
-app.get('/', (req, res) => res.send('Hello, World!'));
-
 // base routes
-// app.use("/user", userRoutes);
-// app.use("/post", postRoutes);
-// app.use("/auth", authRoutes);
+app.use("/api/auth", authRoute);
+app.use("/api/user", userRoute);
+app.use("/api/post", postRoute);
+app.use("/api/comm", communityRoute);
 
+app.get('/', (req, res) => res.send('Hello, World!'));
 
 // Start the server
 const PORT = process.env.PORT || 5001;
