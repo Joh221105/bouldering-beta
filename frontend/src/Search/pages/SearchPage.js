@@ -19,9 +19,9 @@ const SearchPage = () => {
   }, [query]);
 
   return (
-    <div className="p-6">
+    <div className="p-6 h-screen">
       <Header />
-      <h1 className="text-2xl font-bold mb-4">Search Results for "{query}"</h1>
+      <h1 className="text-2xl font-bold my-4">Search Results for "{query}"</h1>
 
       {results.length > 0 ? (
         <div>
