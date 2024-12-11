@@ -1,5 +1,6 @@
 import React from "react";
 import user from "../../data/userData";
+import defaultPic from "../../images/defaultpfp.jpg";
 
 const UserProfile = () => {
   return (
@@ -11,10 +12,11 @@ const UserProfile = () => {
           <div className="flex flex-col items-center text-center mb-6">
             {/* Profile Picture */}
             <img
-              src={user.profilePic}
+              src={user.profilePic ? user.profilePic : defaultPic} // if no profile pic, use default pic
               alt="Profile"
               className="w-24 h-24 rounded-full object-cover border-4 border-gray-300 mb-4"
             />
+
             <h2 className="text-3xl font-semibold">{user.username}</h2>
             <p className="text-sm text-gray-500">Joined: {user.joinDate}</p>
             <p className="text-sm text-gray-500">
