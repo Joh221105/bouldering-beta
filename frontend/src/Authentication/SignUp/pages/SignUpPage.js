@@ -1,27 +1,53 @@
-import React, { useState } from "react";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const SignupPage = () => {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-  const handleSignup = (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
-    // connect with backend
-    console.log("Sign up successful:", { username, email, password });
+    const username = e.target.username.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value; 
+  
+    console.log({ username, email, password });
+  
+    try {
+      const response = await fetch("http://localhost:5001/auth/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username, email, password }),
+      });
+  
+      const data = await response.json();
+  
+      if (response.ok) {
+        console.log("Sign up Successful");
+        navigate("/login");
+      } else {
+        console.log("Sign up unsuccessful", data);
+      }
+    } catch (error) {
+      console.log("Error: ", error);
+    }
   };
+  
 
   return (
     <div className="min-h-screen flex items-center justify-center">
-      <form className="w-full max-w-md p-4 border rounded-lg" onSubmit={handleSignup}>
+      <form
+        className="w-full max-w-md p-4 border rounded-lg"
+        onSubmit={handleSignup}
+      >
         <h1 className="text-2xl font-bold mb-4">Signup</h1>
         <div className="mb-4">
           <label className="block mb-2">Username</label>
           <input
             type="text"
             className="w-full px-3 py-2 border rounded"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            name="username"
             placeholder="Enter your username"
             required
           />
@@ -31,8 +57,7 @@ const SignupPage = () => {
           <input
             type="email"
             className="w-full px-3 py-2 border rounded"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            name="email"
             placeholder="Enter your email"
             required
           />
@@ -42,13 +67,14 @@ const SignupPage = () => {
           <input
             type="password"
             className="w-full px-3 py-2 border rounded"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            name="password"
             placeholder="Enter your password"
             required
           />
         </div>
-        <button className="w-full bg-green-500 text-white py-2 rounded">Signup</button>
+        <button className="w-full bg-green-500 text-white py-2 rounded">
+          Signup
+        </button>
       </form>
     </div>
   );

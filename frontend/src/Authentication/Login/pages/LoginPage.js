@@ -1,13 +1,36 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom"
+import { AuthContext} from "../../../context/AuthContext"
 
 const LoginPage = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const { login } = useContext(AuthContext);
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    // Connect with backend
-    console.log("Log in successful:", { email, password });
+    
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    
+    try {
+      const response = await fetch("http://localhost:5001/auth/login", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({email, password}),
+      });
+
+      const data = await response.json();
+      if (response.ok){
+        login(data.token, email);
+        navigate('/');
+      } else{
+        console.log(data.message)
+      }
+    } catch(error) {
+      console.log("Error: ", error)
+    }
   };
 
   return (
@@ -19,8 +42,7 @@ const LoginPage = () => {
           <input
             type="email"
             className="w-full px-3 py-2 border rounded"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            name = "email"
             placeholder="Enter your email"
             required
           />
@@ -30,8 +52,7 @@ const LoginPage = () => {
           <input
             type="password"
             className="w-full px-3 py-2 border rounded"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            name = "password"
             placeholder="Enter your password"
             required
           />
