@@ -1,4 +1,4 @@
-import User from "../models/user.js";
+import User from "../models/userModel.js";
 
 // retrieves all existing users from the database
 export const getAllUsers = async (req, res) => {

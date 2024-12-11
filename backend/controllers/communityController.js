@@ -1,4 +1,4 @@
-import Community from "../models/community.js";
+import Community from "../models/communityModel.js";
 import Post from "../models/postModel.js";
 
 // retrieves all communities
