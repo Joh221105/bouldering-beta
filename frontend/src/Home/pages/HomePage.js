@@ -1,5 +1,6 @@
 import React from "react";
 import posts from "../../data/postData";
+import PostCard from "../../Common/PostCards";
 
 const HomePage = () => {
   return (
@@ -30,21 +31,7 @@ const HomePage = () => {
       <div className="w-3/4 p-4">
         <h1 className="text-2xl font-bold mb-6 uppercase">Home Feed</h1>
         {posts.map((post) => (
-          <div key={post.id} className="mb-6 p-4 border rounded-lg shadow">
-            <h2 className="text-xl font-semibold">{post.title}</h2>
-            <p className="my-1 text-blue-500">{post.community}</p>
-            <p className="text-gray-600 text-sm">
-              Posted by {post.author} on {post.date}
-            </p>
-            <p className="my-4">{post.body}</p>
-            <div className="flex justify-between items-center">
-              <div>
-                <span className="mr-5">{post.upvotes} Upvotes</span>
-                <span>{post.downvotes} Downvotes</span>
-              </div>
-              <span>{post.comments} Comments</span>
-            </div>
-          </div>
+          <PostCard key={post.id} post={post} />
         ))}
       </div>
     </div>
