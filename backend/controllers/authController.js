@@ -13,7 +13,7 @@ const validateEmail = (email) => {
 
 // determines if password matches set requirements
 const validatePassword = (password) => {
-  const minLength = 8;
+  const minLength = 0;
   const maxLength = 16;
   const length = password.length;
   return length >= minLength && length <= maxLength;
