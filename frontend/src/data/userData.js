@@ -1,7 +1,7 @@
 const userData = {
     username: "ClimberJoe",
     bio: "Aspiring pro climber. Love sharing tips and learning from the community. Catch me at the local climbing gym every weekend!",
-    profilePic: "example.jpeg",
+    profilePic: "",
     joinDate: "August 15, 2023",
     joinedCommunities: ["Bouldering Enthusiasts", "Climbers' Forum", "Rock Climbers Anonymous"],
     postsCount: 15,

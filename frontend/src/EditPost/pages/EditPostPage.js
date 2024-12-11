@@ -1,9 +1,5 @@
 import React, { useState } from "react";
 
-// TODO 
-// add ability to change image if needed
-// implement handle submit
-
 // Default post data to populate the form
 const defaultPost = {
   id: 1,
@@ -17,6 +13,7 @@ const EditPostPage = () => {
     title: defaultPost.title,
     body: defaultPost.body,
     tags: defaultPost.tags,
+    image: null,
   });
 
   const handleInputChange = (e) => {
@@ -27,9 +24,20 @@ const EditPostPage = () => {
     }));
   };
 
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setPostData((prevData) => ({
+        ...prevData,
+        image: file, 
+      }));
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // send and update post db
+    // connect to backend
+    console.log(postData);
   };
 
   return (
@@ -74,6 +82,19 @@ const EditPostPage = () => {
             className="w-full px-3 py-2 border rounded"
             placeholder="Add tags for the post"
           />
+        </div>
+
+        {/* Image Upload */}
+        <div className="mb-4">
+          <label className="block mb-2">Upload Image (Optional)</label>
+          <input
+            type="file"
+            onChange={handleFileChange}
+            className="w-full px-3 py-2 border rounded"
+          />
+          {postData.image && (
+            <p className="text-sm mt-2">{postData.image.name}</p>
+          )}
         </div>
 
         {/* Submit Button */}

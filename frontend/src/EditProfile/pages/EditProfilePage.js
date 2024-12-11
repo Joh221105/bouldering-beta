@@ -1,16 +1,13 @@
 import React, { useState } from "react";
-
-
-//TODO 
-// Add default profile pic and ability to change pic
-// implement handle submit
+import defaultPic from "../../images/defaultpfp.jpg"
 
 const EditProfilePage = () => {
-  // Dummy state for user data
+  // Dummy state for user data and profile image
   const [userData, setUserData] = useState({
     username: "JohnDoe",
     email: "john.doe@example.com",
     bio: "A passionate climber and outdoor enthusiast.",
+    profilePic: null, 
   });
 
   const handleInputChange = (e) => {
@@ -21,15 +18,45 @@ const EditProfilePage = () => {
     }));
   };
 
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setUserData((prevData) => ({
+        ...prevData,
+        profilePic: URL.createObjectURL(file),
+      }));
+    }
+  };
+
+  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    // connect to back end, update user db
+    // implement call to backend
+    console.log(userData);
   };
 
   return (
     <div className="min-h-screen flex justify-center items-center">
       <form onSubmit={handleSubmit} className="w-full max-w-lg p-6 border rounded-lg">
         <h1 className="text-2xl font-bold mb-6">Edit Profile</h1>
+
+        {/* Profile Image */}
+        <div className="mb-4 flex justify-center">
+          <img
+            src={userData.profilePic || defaultPic} 
+            alt="Profile"
+            className="w-24 h-24 rounded-full object-cover border-4 border-gray-300 mb-4"
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block mb-2">Upload Profile Picture</label>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleImageChange}
+            className="w-full px-3 py-2 border rounded"
+          />
+        </div>
 
         {/* Username */}
         <div className="mb-4">
