@@ -1,5 +1,5 @@
-import Post from "../models/post.js";
-import User from "../models/user.js";
+import Post from "../models/postModel.js";
+import User from "../models/userModel.js";
 
 // get all posts
 export const getAllPosts = async (req, res) => {
